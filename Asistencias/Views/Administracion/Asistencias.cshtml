@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "Consulta";
+    string fecha = DateTime.Now.ToString("yyyy-MM-dd");
+}
+
+@section scripts {
+    <script src="~/JS/Administracion/Asistencias.js"></script>
+}
+
+<div class="justify-content-center p-3">
+    <div class="card">
+        <div class="card-header">
+            <div class="card-title row">
+                <div class="col-6">
+                    <h3>Asistencias</h3>
+                </div>
+                <div class="col-6 text-right pr-4">
+                    <button class="btn btn-sm btn-dark salir"><i class="fa fa-door-open"></i>Salir</button>
+                </div>
+            </div>
+        </div>
+        <div class="card-body p-3">
+            <hr />
+            <div class="row justify-content-center">
+                <div class="col-3">
+                    <div class="form-group">
+                        <label>Usuario</label>
+                        <input type="text" id="username" class="form-control form-control-sm" />
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label>Fecha de inicio</label>
+                        <input type="date" id="inicio" class="form-control form-control-sm" max="@fecha" value="@fecha" />
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label>Fecha de Final</label>
+                        <input type="date" id="fin" class="form-control form-control-sm" max="@fecha" value="@fecha" />
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label>&ensp;</label>
+                        <div class="input-group">
+                            <button type="button" id="btn-buscar" class="btn btn-sm btn-primary align-bottom"><i class="fa fa-search"></i> Buscar</button>
+                            <button type="button" id="btn-exportar" class="btn btn-sm btn-primary align-bottom ml-3"><i class="fa fa-file-excel"></i> Exportar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p id="aviso" class="text-danger text-center"></p>
+            <hr />
+            <table class="table table-sm table-striped bg-gradient-primary">
+                <thead class="bg-gradient-secondary text-light fn-10">
+                    <tr>
+                        <th>No.Empleado</th>
+                        <th>Usuario</th>
+                        <th>Recurso</th>
+                        <th>IP</th>
+                        <th>Area</th>
+                        <th>Equipo</th>
+                        <th>Rol</th>
+                        <th>Puesto</th>
+                        <th>Comentarios</th>
+                        <th>Entrada</th>
+                        <th>Inicio Comida</th>
+                        <th>Fin Comida</th>
+                        <th>Salida</th>
+                    </tr>
+                </thead>
+                <tbody id="data"></tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+

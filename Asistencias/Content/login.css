@@ -1,0 +1,28 @@
+.bg-gradient-primary {
+    background-color: #ccc;    
+    background-size: cover;
+    background-image: none;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #142448;
+    border-color: #142448;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #203564;
+    border-color: #203564;
+}
+.bg-login-image {
+    background: url('https://www.intermex.mx/images/servicios.jpg?crc=402542177');
+    background-position: center;
+    background-size: cover;
+}
+.error{
+    color: #fff;
+
+
+}
+.correct{
+    color: #fff;
+}

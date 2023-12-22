@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+
+    string dominio = "@bancodelbienestar.gob.mx";
+}
+
+@section scripts{ 
+    <script src="~/JS/Home/Index.js"></script>
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-xl-10 col-lg-12 col-md-9">
+            <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card-body p-0">
+                    <div class="row">
+                        <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                        <div class="col-lg-6">
+                            <div class="p-5">
+                                <div class="text-center">
+                                    <h1 class="h4 text-gray-900 mb-4"><b>Grupo Intermex</b><br>Registra tu asistencia y horario de comida</h1>
+                                </div>
+                                <form class="user" id="login">
+                                    <div class="form-group ">
+                                        <input type="text" class="form-control form-control"
+                                               id="user"
+                                               placeholder="*ID de correo electrónico" name="user"
+                                               title='El ID de usuario es el correo sin dominio "@dominio"' />
+                                    </div>
+                                    <div class="form-group">
+                                        <select name="tipo_registro" id="tipo_registro" class="form-select form-control" placeholder="Ingresa el tipo de registro"
+                                                title="EL tipo de registro debe hacerse en orden: Entrada, Salida a comer, Regreso de comer, Salida, de lo contrario no te permitirá el registro">
+                                            <option value="">*Selecciona el Tipo de Registro</option>
+                                            <option value="in">1. Entrada</option>
+                                            <option value="eat-ini">2. Salida a Comer</option>
+                                            <option value="eat-fin">3. Regreso de Comida</option>
+                                            <option value="out">4. Salida</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control form-control"
+                                               id="password" placeholder="*Contraseña" name="passwd"
+                                               title="La contraseña es la misma de tu correo del Banco del Bienestar">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <button type="button" class="btn btn-primary btn-user btn-block" id="enter">Registrar</button>
+                                        </div>
+                                        <div class="col-6">
+                                            <button type="button" class="btn btn-primary btn-user btn-block" id="asistencias">Mis asistencias</button>
+                                        </div>
+                                    </div>
+                                    
+                                    <p id="aviso" class="text-center w-100">&emsp;</p>
+                                </form>
+                                <hr />
+                                <p class="text-center" id="divRegistro">
+                                    Los campos con <b>*</b> son obligatorios
+                                </p>
+                                <hr />
+                                <div class="text-center">
+                                    En este portal deberá registrar tu <b>Entrada, Salida y Horarios de comida.</b>   Los horarios los deberá acordar con tu Líder de equipo y Responsable del Banco del Bienestar.<br />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
