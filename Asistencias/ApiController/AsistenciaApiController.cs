@@ -71,11 +71,7 @@ namespace Asistencias.Controllers
         public async Task<IHttpActionResult> Login()
         {
 
-            
-
             string json = await Request.Content.ReadAsStringAsync();
-
-
 
             BuscarRegistrar registro = Newtonsoft.Json.JsonConvert.DeserializeObject<BuscarRegistrar>(json);
             RespuestaJson respuestaJson = new RespuestaJson();

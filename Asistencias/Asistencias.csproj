@@ -178,6 +178,7 @@
     <Content Include="Content\webfonts\fa-solid-900.svg" />
     <Content Include="Global.asax" />
     <Content Include="JS\Administracion\Asistencias.js" />
+    <Content Include="JS\Administracion\Reportes.js" />
     <Content Include="JS\Administracion\Login.js" />
     <Content Include="JS\Consultas\mis_asistencias.js" />
     <Content Include="JS\Home\Index.js" />
@@ -203,6 +204,8 @@
     </Compile>
     <Compile Include="Models\AsistenciasModel.cs" />
     <Compile Include="Models\BuscarRegistrar.cs" />
+    <Compile Include="Models\Recursos.cs" />
+    <Compile Include="Models\ReporteAsistencia.cs" />
     <Compile Include="Models\Token.cs" />
     <Compile Include="Models\ConexionApi.cs" />
     <Compile Include="Models\ConexionBD.cs" />
@@ -232,6 +235,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Scripts\bootstrap-4.6.0.bundle.min.js.map" />
     <Content Include="Scripts\jquery-3.7.1.min.map" />
+    <Content Include="Views\Administracion\Reportes.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

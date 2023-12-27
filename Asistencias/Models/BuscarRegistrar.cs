@@ -14,4 +14,6 @@ namespace Asistencias.Models
         public string fecha_fin { get; set; }
         public string ip { get; set; }
     }
+
+   
 }

@@ -119,5 +119,12 @@ namespace Asistencias.Controllers
 
             return Content("<script>function cerrar(){ alert('Ocurrió un error al generar el reporte'); window.close(); } window.onload = cerrar();</script>");
         }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult Reportes()
+        {
+            return View();
+        }
     }
 }

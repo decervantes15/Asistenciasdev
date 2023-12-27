@@ -61,11 +61,82 @@ namespace Asistencias.Models
             }
             return respuesta;
         }
+
+        public RespuestaBD ConsultaMultiple(string query, List<SqlParameter> parametros)
+        {
+            RespuestaBD respuesta = new RespuestaBD();
+            if (!string.IsNullOrEmpty(query) && !string.IsNullOrWhiteSpace(query))
+            {
+                try
+                {
+                    using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["Base"].ConnectionString))
+                    {
+                        try
+                        {
+                            connection.Open();
+                        }
+                        catch (Exception)
+                        {
+                            respuesta.Mensaje = "Error al conectar con el servidor de base de datos.";
+                        }
+
+                        using (SqlCommand command = new SqlCommand(query, connection))
+                        {
+                            if (parametros != null)
+                            {
+                                command.Parameters.AddRange(parametros.ToArray());
+                            }
+                            using (SqlDataReader reader  = command.ExecuteReader())
+                            {
+                                respuesta.Datas = new List<DataTable>();
+
+                                bool? continuar = null;
+                                do
+                                {
+                                    DataTable dt = new DataTable();
+                                    dt.Load(reader);
+                                    respuesta.Datas.Add(dt);
+                                    try
+                                    {
+                                        reader.NextResult();
+                                        continuar = true;
+                                    }
+                                    catch (Exception)
+                                    {
+                                        continuar = false;
+                                    }
+                                } while (continuar.Value);
+
+                                respuesta.Estatus = EstatusRespuesta.Ok;
+                            }
+                        }
+                        try
+                        {
+                            connection.Close();
+                        }
+                        catch (Exception)
+                        {
+                            respuesta.Mensaje = "Error al desconectar con el servidor de base de datos.";
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    respuesta.Mensaje = ex.Message;
+                }
+            }
+            else
+            {
+                respuesta.Mensaje = "No se cuenta con instrucción.";
+            }
+            return respuesta;
+        }
     }
     public class RespuestaBD
     {
         public EstatusRespuesta Estatus { get; set; } = EstatusRespuesta.Error;
         public string Mensaje { get; set; } = "";
         public DataTable Data { get; set; } = null;
+        public List<DataTable> Datas { get; set; } = null;
     }
 }

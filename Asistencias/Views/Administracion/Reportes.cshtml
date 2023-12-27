@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Reportes";
+}
+
+@section scripts{
+    <script src="~/JS/Administracion/Reportes.js"></script>
+    }
+
+<h2>Reportes</h2>
+
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label>Mes</label>
+                    <select id="slct-mes" class="form-control form-select"></select>
+                </div>
+
+                <div class="form-group">
+                    <label>Semana</label>
+                    <input type="text" id="semana" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>No. Empleado</label>
+                    <input type="text" id="no_empleado" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>Área</label>
+                    <select id="slct-area" class="form-control" />
+                </div>
+                <div class="form-group">
+                </div>
+                <button type="submit" id="btn-filtro" class="btn btn-sm"><i class="fa fa-search"></i> Buscar</button>
+                <hr />
+            </div>
+            <div class="col-sm-9">
+                <table id="table" class="table table-striped">
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
